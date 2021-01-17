@@ -1,4 +1,4 @@
-class Forcast
+class Forecast
   attr_reader :id,
               :current_weather,
               :daily_weather,

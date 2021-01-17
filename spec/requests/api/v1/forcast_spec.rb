@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'api/v1/forcast' do
-  describe 'GET api/v1/forcast' do
+describe 'api/v1/forecast' do
+  describe 'GET api/v1/forecast' do
     before :each do
       json_response = File.read('spec/fixtures/denver_mapquest_search.json')
       stub_request(:get, "#{ENV['MAPQUEST_URL']}?key=#{ENV['MAPQUEST_API_KEY']}&inFormat=kvp&outFormat=json&location=denver%2C+co&thumbMaps=false")
@@ -12,14 +12,14 @@ describe 'api/v1/forcast' do
     end
 
     it 'retrieves the weather for a city' do
-      get '/api/v1/forcast?location=denver,co'
+      get '/api/v1/forecast?location=denver,co'
 
       json = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
 
       expect(json[:data][:id]).to be_nil
-      expect(json[:data][:type]).to eq("forcast")
+      expect(json[:data][:type]).to eq("forecast")
 
       expect(json[:data][:attributes].count).to eq(3)
 
