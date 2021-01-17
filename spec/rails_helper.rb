@@ -1,4 +1,9 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start
+require 'faker'
+require 'webmock/rspec'
+
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
@@ -40,6 +45,8 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include Capybara::DSL
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -69,16 +76,4 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
-
-  VCR.configure do |config|
-    config.cassette_library_dir = 'fixtures/vcr_cassettes'
-    config.hook_into :webmock
-  end
 end
-
-Tip: Based on detected gems, the following RuboCop extension libraries might be helpful:
-  * rubocop-rspec (http://github.com/rubocop-hq/rubocop-rspec)
-
-You can opt out of this message by adding the following to your config (see https://docs.rubocop.org/rubocop/extensions.html#extension-suggestions for more options):
-  AllCops:
-    SuggestExtensions: false
