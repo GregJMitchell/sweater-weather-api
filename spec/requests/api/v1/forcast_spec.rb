@@ -19,7 +19,7 @@ describe 'api/v1/forecast' do
       expect(response).to be_successful
 
       expect(json[:data][:id]).to be_nil
-      expect(json[:data][:type]).to eq("forecast")
+      expect(json[:data][:type]).to eq('forecast')
 
       expect(json[:data][:attributes].count).to eq(3)
 

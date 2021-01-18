@@ -11,7 +11,7 @@ describe MapQuestFacade do
       response = MapQuestFacade.get_cords('denver,co')
       expect(response).to be_a Hash
       expect(response.count).to eq(2)
-      
+
       expect(response[:lat]).to be_a Float
       expect(response[:lng]).to be_a Float
     end

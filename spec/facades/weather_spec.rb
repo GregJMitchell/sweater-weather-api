@@ -10,7 +10,7 @@ describe WeatherFacade do
     it '.get_weather' do
       response = WeatherFacade.get_weather(39.738453, -104.984853)
       expect(response).to be_a Forecast
-      
+
       expect(response.current_weather).to be_a CurrentWeather
 
       expect(response.daily_weather).to be_a Array
