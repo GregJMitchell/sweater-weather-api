@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
                        password_confirmation: user_params[:password_confirmation])
 
     if user.save
-      render json: UserSerializer.new(user)
+      render json: UsersSerializer.new(user)
     elsif User.find_by(email: user_params[:email])
       render json: { message: 'unsuccessful', error: 'User already exists' },
              status: :conflict

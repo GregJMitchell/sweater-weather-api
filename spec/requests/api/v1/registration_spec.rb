@@ -33,7 +33,7 @@ describe 'User registration' do
 
       user = User.last
 
-      expect(json[:data][:type]).to eq('user')
+      expect(json[:data][:type]).to eq('users')
       expect(json[:data][:id]).to eq(user.id.to_s)
       expect(json[:data]).to have_key(:attributes)
       expect(json[:data][:attributes]).to have_key(:email)
