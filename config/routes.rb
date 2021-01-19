@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[create]
       resources :sessions, only: %i[create]
       resources :road_trip, only: %i[create]
+      get '/munchies', to: 'munchies#index'
     end
   end
 end
