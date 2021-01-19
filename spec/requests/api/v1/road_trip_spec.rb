@@ -62,7 +62,7 @@ describe 'Creating a road trip' do
       stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=&key=#{ENV['MAPQUEST_API_KEY']}&to=Pueblo,Co")
         .to_return(status: 200, body: json_response)
       forcast_response = File.read('spec/fixtures/pueblo_forcast.json')
-      stub_request(:get, 'https://api.openweathermap.org/data/2.5/onecall?appid=37b66c6ee992a7188c0682f0fe3cbffa&lat=38.254448&lon=-104.609138')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OW_API_KEY']}&lat=38.254448&lon=-104.609138")
         .to_return(status: 200, body: forcast_response)
       user = create(:user, api_key: 'jgn983hy48thw9begh98h4539h4')
 
