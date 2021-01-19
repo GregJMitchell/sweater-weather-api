@@ -4,7 +4,7 @@ class MapQuestFacade
     state = location.split(',')[1]
     json = MapQuestService.get_cords(city, state)
 
-    if json[:info][:statuscode] == 0
+    if json[:info][:statuscode].zero?
       json[:results][0][:locations][0][:displayLatLng]
     else
       json
@@ -13,7 +13,7 @@ class MapQuestFacade
 
   def self.road_trip(params)
     json = MapQuestService.road_trip(params)
-    if json[:info][:statuscode] == 0
+    if json[:info][:statuscode].zero?
       road_trip = RoadTrip.new(json, params[:origin], params[:destination])
       weather = WeatherService.get_weather(json[:route][:locations].last[:displayLatLng][:lat],
                                            json[:route][:locations].last[:displayLatLng][:lng])
