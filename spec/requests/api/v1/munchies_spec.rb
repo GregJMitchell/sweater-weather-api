@@ -3,15 +3,26 @@ require 'rails_helper'
 describe 'Munchies endpoint' do
   describe 'GET /api/v1/munchies?start=CITY,STATE&end=city,state&food=foodtype' do
     before :each do
+      pueblo_response = File.read('spec/fixtures/pueblo_mapquest_search.json')
+      stub_request(:get, "#{ENV['MAPQUEST_URL']}?key=#{ENV['MAPQUEST_API_KEY']}&inFormat=kvp&outFormat=json&location=pueblo%2C+co&thumbMaps=false")
+        .to_return(status: 200, body: pueblo_response)
       json_response = File.read('spec/fixtures/denver_to_pueblo.json')
-      stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=Denver,Co&key=#{ENV['MAPQUEST_API_KEY']}&to=Pueblo,Co")
+      stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=denver,co&key=#{ENV['MAPQUEST_API_KEY']}&to=pueblo,co")
         .to_return(status: 200, body: json_response)
       forcast_response = File.read('spec/fixtures/pueblo_forcast.json')
       stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OW_API_KEY']}&lat=38.254448&lon=-104.609138")
         .to_return(status: 200, body: forcast_response)
       munchies_response = File.read('spec/fixtures/pueblo_munchies.json')
-      stub_request(:get, 'https://api.yelp.com/v3/businesses/search?latitude=38.254447&longitude=-104.609141&categories=resturants,chinese')
-        .to_return(status: 200, body: munchies_response)
+      stub_request(:get, 'https://api.yelp.com/v3/businesses/search?categories=resturants,chinese&latitude=38.265425&longitude=-104.610415')
+        .with(
+          headers: {
+            'Accept' => '*/*',
+            'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'Authorization' => "Bearer #{ENV['YELP_API_KEY']}",
+            'User-Agent' => 'Faraday v1.3.0'
+          }
+        )
+        .to_return(status: 200, body: munchies_response, headers: {})
     end
     it 'Can return data' do
       get '/api/v1/munchies?start=denver,co&end=pueblo,co&food=chinese'
