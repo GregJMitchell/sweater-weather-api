@@ -12,8 +12,10 @@ describe 'Munchies endpoint' do
       forcast_response = File.read('spec/fixtures/pueblo_forcast.json')
       stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OW_API_KEY']}&lat=38.254448&lon=-104.609138")
         .to_return(status: 200, body: forcast_response)
+      time = Time.now
+      time = time.advance(hours: 2)
       munchies_response = File.read('spec/fixtures/pueblo_munchies.json')
-      stub_request(:get, 'https://api.yelp.com/v3/businesses/search?categories=resturants,chinese&latitude=38.265425&longitude=-104.610415')
+      stub_request(:get, "https://api.yelp.com/v3/businesses/search?categories=resturants,chinese&latitude=38.265425&longitude=-104.610415&open_at=#{time.to_i}")
         .with(
           headers: {
             'Accept' => '*/*',
@@ -44,7 +46,7 @@ describe 'Munchies endpoint' do
       expect(json[:data][:attributes][:resturant]).to have_key(:address)
     end
 
-    it "No start city is given" do
+    it 'No start city is given' do
       json_response = File.read('spec/fixtures/empty_starting_city.json')
       stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=&key=#{ENV['MAPQUEST_API_KEY']}&to=pueblo,co")
         .to_return(status: 200, body: json_response)
@@ -57,7 +59,7 @@ describe 'Munchies endpoint' do
       expect(json[:error]).to eq('At least two locations must be provided.')
     end
 
-    it "No food is given" do
+    it 'No food is given' do
       munchies_response = File.read('spec/fixtures/pueblo_no_food.json')
       stub_request(:get, 'https://api.yelp.com/v3/businesses/search?categories=resturants,&latitude=38.265425&longitude=-104.610415')
         .with(

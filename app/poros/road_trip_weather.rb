@@ -1,9 +1,12 @@
 class RoadTripWeather
   attr_reader :temperature,
-              :conditions
+              :conditions,
+              :timezone,
+              :time
 
   def initialize(weather, time)
     @time = parse_time(time)
+    @timezone = weather[:timezone]
     @temperature = get_temp(weather)
     @conditions = weather[:hourly][@time][:weather].first[:description]
   end

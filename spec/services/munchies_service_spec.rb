@@ -12,8 +12,10 @@ describe MunchiesService do
       forcast_response = File.read('spec/fixtures/pueblo_forcast.json')
       stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OW_API_KEY']}&lat=38.254448&lon=-104.609138")
         .to_return(status: 200, body: forcast_response)
+        Time.zone = 'America/Denver'
+        @time = Time.zone.now.advance(hours: 2)
       munchies_response = File.read('spec/fixtures/pueblo_munchies.json')
-      stub_request(:get, 'https://api.yelp.com/v3/businesses/search?categories=resturants,chinese&latitude=38.265425&longitude=-104.610415')
+      stub_request(:get, "https://api.yelp.com/v3/businesses/search?categories=resturants,chinese&latitude=38.265425&longitude=-104.610415&open_at=#{@time.to_i}")
         .with(
           headers: {
             'Accept' => '*/*',
@@ -27,8 +29,9 @@ describe MunchiesService do
 
     it '.find_munchies' do
       cords = {lat: 38.265425, lng: -104.610415}
+      
 
-      response = MunchiesService.find_munchies(cords[:lat],cords[:lng], 'chinese')
+      response = MunchiesService.find_munchies(cords[:lat],cords[:lng], 'chinese', @time.to_i)
 
       expect(response).to be_a Hash
 
