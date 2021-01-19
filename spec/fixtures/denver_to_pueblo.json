@@ -1,0 +1,399 @@
+{
+  "route": {
+      "hasTollRoad": false,
+      "hasBridge": false,
+      "boundingBox": {
+          "lr": {
+              "lng": -104.605499,
+              "lat": 38.254517
+          },
+          "ul": {
+              "lng": -104.98761,
+              "lat": 39.738441
+          }
+      },
+      "distance": 112.355,
+      "hasTimedRestriction": false,
+      "hasTunnel": false,
+      "hasHighway": true,
+      "computedWaypoints": [],
+      "routeError": {
+          "errorCode": -400,
+          "message": ""
+      },
+      "formattedTime": "01:44:35",
+      "sessionId": "60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+      "hasAccessRestriction": false,
+      "realTime": -1,
+      "hasSeasonalClosure": false,
+      "hasCountryCross": false,
+      "fuelUsed": 5.55,
+      "legs": [
+          {
+              "hasTollRoad": false,
+              "hasBridge": false,
+              "destNarrative": "",
+              "distance": 112.355,
+              "hasTimedRestriction": false,
+              "hasTunnel": false,
+              "hasHighway": true,
+              "index": 0,
+              "formattedTime": "01:44:35",
+              "origIndex": 3,
+              "hasAccessRestriction": false,
+              "hasSeasonalClosure": false,
+              "hasCountryCross": false,
+              "roadGradeStrategy": [
+                  []
+              ],
+              "destIndex": -1,
+              "time": 6275,
+              "hasUnpaved": false,
+              "origNarrative": "Go south on Broadway.",
+              "maneuvers": [
+                  {
+                      "distance": 0.058,
+                      "streets": [
+                          "E 14th Ave"
+                      ],
+                      "narrative": "Start out going east on E 14th Ave toward Grant St.",
+                      "turnType": 0,
+                      "startPoint": {
+                          "lng": -104.984695,
+                          "lat": 39.73843
+                      },
+                      "index": 0,
+                      "formattedTime": "00:00:11",
+                      "directionName": "East",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.73843002319336,-104.98469543457031|marker-1||39.738441467285156,-104.98359680175781|marker-2||&center=39.73843574523926,-104.98414611816406&defaultMarker=none&zoom=15&rand=1188258667&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 11,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/icon-dirs-start_sm.gif",
+                      "direction": 8
+                  },
+                  {
+                      "distance": 0.109,
+                      "streets": [
+                          "Grant St"
+                      ],
+                      "narrative": "Turn right onto Grant St.",
+                      "turnType": 2,
+                      "startPoint": {
+                          "lng": -104.983597,
+                          "lat": 39.738441
+                      },
+                      "index": 1,
+                      "formattedTime": "00:00:24",
+                      "directionName": "South",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.738441467285156,-104.98359680175781|marker-2||39.73686218261719,-104.98360443115234|marker-3||&center=39.73765182495117,-104.98360061645508&defaultMarker=none&zoom=13&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 24,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_right_sm.gif",
+                      "direction": 4
+                  },
+                  {
+                      "distance": 0.201,
+                      "streets": [
+                          "E 13th Ave"
+                      ],
+                      "narrative": "Turn right onto E 13th Ave.",
+                      "turnType": 2,
+                      "startPoint": {
+                          "lng": -104.983604,
+                          "lat": 39.736862
+                      },
+                      "index": 2,
+                      "formattedTime": "00:00:48",
+                      "directionName": "West",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.73686218261719,-104.98360443115234|marker-3||39.736846923828125,-104.98738861083984|marker-4||&center=39.736854553222656,-104.9854965209961&defaultMarker=none&zoom=13&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 48,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_right_sm.gif",
+                      "direction": 7
+                  },
+                  {
+                      "distance": 1.403,
+                      "streets": [
+                          "Broadway"
+                      ],
+                      "narrative": "Turn left onto Broadway.",
+                      "turnType": 6,
+                      "startPoint": {
+                          "lng": -104.987389,
+                          "lat": 39.736847
+                      },
+                      "index": 3,
+                      "formattedTime": "00:02:51",
+                      "directionName": "South",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.736846923828125,-104.98738861083984|marker-4||39.71656036376953,-104.98748779296875|marker-5||&center=39.72670364379883,-104.9874382019043&defaultMarker=none&zoom=9&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 171,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_left_sm.gif",
+                      "direction": 4
+                  },
+                  {
+                      "distance": 1.087,
+                      "streets": [
+                          "South Broadway"
+                      ],
+                      "narrative": "Broadway becomes South Broadway.",
+                      "turnType": 0,
+                      "startPoint": {
+                          "lng": -104.987488,
+                          "lat": 39.71656
+                      },
+                      "index": 4,
+                      "formattedTime": "00:01:45",
+                      "directionName": "South",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.71656036376953,-104.98748779296875|marker-5||39.700843811035156,-104.98760986328125|marker-6||&center=39.708702087402344,-104.987548828125&defaultMarker=none&zoom=9&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 105,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_straight_sm.gif",
+                      "direction": 4
+                  },
+                  {
+                      "distance": 109.158,
+                      "streets": [
+                          "I-25 S"
+                      ],
+                      "narrative": "Merge onto I-25 S via the ramp on the left.",
+                      "turnType": 11,
+                      "startPoint": {
+                          "lng": -104.98761,
+                          "lat": 39.700844
+                      },
+                      "index": 5,
+                      "formattedTime": "01:37:46",
+                      "directionName": "South",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [
+                          {
+                              "extraText": "",
+                              "text": "25",
+                              "type": 1,
+                              "url": "http://icons.mqcdn.com/icons/rs1.png?n=25&d=SOUTH",
+                              "direction": 4
+                          }
+                      ],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=39.700843811035156,-104.98760986328125|marker-6||38.258670806884766,-104.60549926757812|marker-7||&center=38.97975730895996,-104.79655456542969&defaultMarker=none&zoom=3&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 128,
+                      "time": 5866,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_merge_left_sm.gif",
+                      "direction": 4
+                  },
+                  {
+                      "distance": 0.091,
+                      "streets": [],
+                      "narrative": "Take the US-50 Business exit, EXIT 98A.",
+                      "turnType": 14,
+                      "startPoint": {
+                          "lng": -104.605499,
+                          "lat": 38.258671
+                      },
+                      "index": 6,
+                      "formattedTime": "00:00:20",
+                      "directionName": "Southwest",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [
+                          {
+                              "extraText": "",
+                              "text": "98A",
+                              "type": 1001,
+                              "url": "http://icons.mqcdn.com/icons/rs1001.png?n=98A&d=RIGHT",
+                              "direction": 0
+                          }
+                      ],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=38.258670806884766,-104.60549926757812|marker-7||38.25807189941406,-104.60673522949219|marker-8||&center=38.258371353149414,-104.60611724853516&defaultMarker=none&zoom=15&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 20,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_gr_exitright_sm.gif",
+                      "direction": 6
+                  },
+                  {
+                      "distance": 0.248,
+                      "streets": [
+                          "US-50 E",
+                          "S Santa Fe Ave"
+                      ],
+                      "narrative": "Turn left onto US-50 E/S Santa Fe Ave.",
+                      "turnType": 6,
+                      "startPoint": {
+                          "lng": -104.606735,
+                          "lat": 38.258072
+                      },
+                      "index": 7,
+                      "formattedTime": "00:00:30",
+                      "directionName": "East",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [
+                          {
+                              "extraText": "",
+                              "text": "50",
+                              "type": 2,
+                              "url": "http://icons.mqcdn.com/icons/rs2.png?n=50&d=EAST",
+                              "direction": 8
+                          }
+                      ],
+                      "mapUrl": "http://open.mapquestapi.com/staticmap/v5/map?key=J1oCWuTCnjFvGBqisAxjRGGT0QWaLYkG&size=225,160&locations=38.25807189941406,-104.60673522949219|marker-8||38.2545166015625,-104.60675048828125|marker-9||&center=38.25629425048828,-104.60674285888672&defaultMarker=none&zoom=11&rand=1186334922&session=60060e28-00d9-993a-02b4-35c4-0a9e7437f51b",
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 30,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/rs_left_sm.gif",
+                      "direction": 8
+                  },
+                  {
+                      "distance": 0,
+                      "streets": [],
+                      "narrative": "Welcome to PUEBLO, CO.",
+                      "turnType": -1,
+                      "startPoint": {
+                          "lng": -104.60675,
+                          "lat": 38.254517
+                      },
+                      "index": 8,
+                      "formattedTime": "00:00:00",
+                      "directionName": "",
+                      "maneuverNotes": [],
+                      "linkIds": [],
+                      "signs": [],
+                      "transportMode": "AUTO",
+                      "attributes": 0,
+                      "time": 0,
+                      "iconUrl": "http://content.mqcdn.com/mqsite/turnsigns/icon-dirs-end_sm.gif",
+                      "direction": 0
+                  }
+              ],
+              "hasFerry": false
+          }
+      ],
+      "options": {
+          "arteryWeights": [],
+          "cyclingRoadFactor": 1,
+          "timeType": 0,
+          "useTraffic": false,
+          "returnLinkDirections": false,
+          "countryBoundaryDisplay": true,
+          "enhancedNarrative": false,
+          "locale": "en_US",
+          "tryAvoidLinkIds": [],
+          "drivingStyle": 2,
+          "doReverseGeocode": true,
+          "generalize": -1,
+          "mustAvoidLinkIds": [],
+          "sideOfStreetDisplay": true,
+          "routeType": "FASTEST",
+          "avoidTimedConditions": false,
+          "routeNumber": 0,
+          "shapeFormat": "raw",
+          "maxWalkingDistance": -1,
+          "destinationManeuverDisplay": true,
+          "transferPenalty": -1,
+          "narrativeType": "text",
+          "walkingSpeed": -1,
+          "urbanAvoidFactor": -1,
+          "stateBoundaryDisplay": true,
+          "unit": "M",
+          "highwayEfficiency": 22,
+          "maxLinkId": 0,
+          "maneuverPenalty": -1,
+          "avoidTripIds": [],
+          "filterZoneFactor": -1,
+          "manmaps": "true"
+      },
+      "locations": [
+          {
+              "dragPoint": false,
+              "displayLatLng": {
+                  "lng": -104.984703,
+                  "lat": 39.739155
+              },
+              "adminArea4": "Denver County",
+              "adminArea5": "Denver",
+              "postalCode": "",
+              "adminArea1": "US",
+              "adminArea3": "CO",
+              "type": "s",
+              "sideOfStreet": "N",
+              "geocodeQualityCode": "A5XAX",
+              "adminArea4Type": "County",
+              "linkId": 58049978,
+              "street": "",
+              "adminArea5Type": "City",
+              "geocodeQuality": "CITY",
+              "adminArea1Type": "Country",
+              "adminArea3Type": "State",
+              "latLng": {
+                  "lng": -104.984703,
+                  "lat": 39.739154
+              }
+          },
+          {
+              "dragPoint": false,
+              "displayLatLng": {
+                  "lng": -104.609138,
+                  "lat": 38.254448
+              },
+              "adminArea4": "Pueblo County",
+              "adminArea5": "Pueblo",
+              "postalCode": "",
+              "adminArea1": "US",
+              "adminArea3": "CO",
+              "type": "s",
+              "sideOfStreet": "N",
+              "geocodeQualityCode": "A5XAX",
+              "adminArea4Type": "County",
+              "linkId": 45910621,
+              "street": "",
+              "adminArea5Type": "City",
+              "geocodeQuality": "CITY",
+              "adminArea1Type": "Country",
+              "adminArea3Type": "State",
+              "latLng": {
+                  "lng": -104.609141,
+                  "lat": 38.254447
+              }
+          }
+      ],
+      "time": 6275,
+      "hasUnpaved": false,
+      "locationSequence": [
+          0,
+          1
+      ],
+      "hasFerry": false
+  },
+  "info": {
+      "statuscode": 0,
+      "copyright": {
+          "imageAltText": "© 2021 MapQuest, Inc.",
+          "imageUrl": "http://api.mqcdn.com/res/mqlogo.gif",
+          "text": "© 2021 MapQuest, Inc."
+      },
+      "messages": []
+  }
+}

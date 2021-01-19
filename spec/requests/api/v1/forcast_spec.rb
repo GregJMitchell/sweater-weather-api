@@ -39,5 +39,42 @@ describe 'api/v1/forecast' do
       expect(hourly_weather.count).to eq(8)
       expect(hourly_weather[0].count).to eq(6)
     end
+
+    it 'retreives data for cities in other countries' do
+      json_response = File.read('spec/fixtures/london_mapquest_search.json')
+      stub_request(:get, "#{ENV['MAPQUEST_URL']}?key=#{ENV['MAPQUEST_API_KEY']}&inFormat=kvp&outFormat=json&location=london%2C+uk&thumbMaps=false")
+        .to_return(status: 200, body: json_response)
+      forcast_response = File.read('spec/fixtures/london_forcast.json')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?lat=51.50015&lon=-0.12624&appid=#{ENV['OW_API_KEY']}")
+        .to_return(status: 200, body: forcast_response)
+
+      get '/api/v1/forecast?location=london,uk'
+
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+
+      expect(json[:data][:id]).to be_nil
+      expect(json[:data][:type]).to eq('forecast')
+    end
+
+    it 'Search is an empty string' do
+      json_response = File.read('spec/fixtures/empty.json')
+      stub_request(:get, "#{ENV['MAPQUEST_URL']}?key=#{ENV['MAPQUEST_API_KEY']}&inFormat=kvp&outFormat=json&location=%2C+&thumbMaps=false")
+        .to_return(status: 200, body: json_response)
+      forcast_response = File.read('spec/fixtures/empty_forcast.json')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?lat=&lon=&appid=#{ENV['OW_API_KEY']}")
+        .to_return(status: 200, body: forcast_response)
+
+      get '/api/v1/forecast?location='
+
+      json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response.status).to eq(400)
+
+      expect(json[:message]).to eq('unsuccessful')
+      expect(json[:error]).to eq('Nothing to geocode')
+      # expect(json[:data][:type]).to eq('forecast')
+    end
   end
 end
