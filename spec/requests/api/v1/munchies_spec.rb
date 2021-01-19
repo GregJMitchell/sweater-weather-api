@@ -43,5 +43,39 @@ describe 'Munchies endpoint' do
       expect(json[:data][:attributes][:resturant]).to have_key(:name)
       expect(json[:data][:attributes][:resturant]).to have_key(:address)
     end
+
+    it "No start city is given" do
+      json_response = File.read('spec/fixtures/empty_starting_city.json')
+      stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=&key=#{ENV['MAPQUEST_API_KEY']}&to=pueblo,co")
+        .to_return(status: 200, body: json_response)
+      get '/api/v1/munchies?start=&end=pueblo,co&food=chinese'
+
+      expect(response.status).to eq(400)
+
+      json = JSON.parse(response.body, symbolize_names: true)
+      expect(json[:message]).to eq('unsuccessful')
+      expect(json[:error]).to eq('At least two locations must be provided.')
+    end
+
+    it "No food is given" do
+      munchies_response = File.read('spec/fixtures/pueblo_no_food.json')
+      stub_request(:get, 'https://api.yelp.com/v3/businesses/search?categories=resturants,&latitude=38.265425&longitude=-104.610415')
+        .with(
+          headers: {
+            'Accept' => '*/*',
+            'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+            'Authorization' => "Bearer #{ENV['YELP_API_KEY']}",
+            'User-Agent' => 'Faraday v1.3.0'
+          }
+        )
+        .to_return(status: 200, body: munchies_response, headers: {})
+      get '/api/v1/munchies?start=denver,co&end=pueblo,co&food='
+
+      expect(response.status).to eq(400)
+
+      json = JSON.parse(response.body, symbolize_names: true)
+      expect(json[:message]).to eq('unsuccessful')
+      expect(json[:error]).to eq('You must provide a food')
+    end
   end
 end
