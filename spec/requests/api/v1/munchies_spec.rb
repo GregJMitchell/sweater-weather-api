@@ -39,9 +39,9 @@ describe 'Munchies endpoint' do
       expect(json[:data][:attributes]).to have_key(:forecast)
       expect(json[:data][:attributes][:forecast]).to have_key(:temperature)
       expect(json[:data][:attributes][:forecast]).to have_key(:summary)
-      expect(json[:data][:attributes]).to have_key(:resurant)
-      expect(json[:data][:attributes][:resurant]).to have_key(:name)
-      expect(json[:data][:attributes][:resurant]).to have_key(:address)
+      expect(json[:data][:attributes]).to have_key(:resturant)
+      expect(json[:data][:attributes][:resturant]).to have_key(:name)
+      expect(json[:data][:attributes][:resturant]).to have_key(:address)
     end
   end
 end
