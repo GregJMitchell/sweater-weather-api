@@ -16,5 +16,18 @@ describe MapQuestService do
       expect(response[:results][0][:locations][0][:displayLatLng][:lat]).to be_a Float
       expect(response[:results][0][:locations][0][:displayLatLng][:lng]).to be_a Float
     end
+
+    it '.road_trip' do
+      json_response = File.read('spec/fixtures/denver_to_pueblo.json')
+      stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=Denver,Co&key=#{ENV['MAPQUEST_API_KEY']}&to=Pueblo,Co")
+        .to_return(status: 200, body: json_response)
+      params = {
+        origin: 'Denver,Co',
+        destination: 'Pueblo,Co'
+      }
+      response = MapQuestService.road_trip(params)
+      expect(response).to be_a Hash
+      expect(response.count).to eq(2)
+    end
   end
 end
