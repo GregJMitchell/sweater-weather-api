@@ -7,7 +7,7 @@ describe 'Creating a road trip' do
       stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=Denver,Co&key=#{ENV['MAPQUEST_API_KEY']}&to=Pueblo,Co")
         .to_return(status: 200, body: json_response)
       forcast_response = File.read('spec/fixtures/pueblo_forcast.json')
-      stub_request(:get, 'https://api.openweathermap.org/data/2.5/onecall?appid=37b66c6ee992a7188c0682f0fe3cbffa&lat=38.254448&lon=-104.609138')
+      stub_request(:get, "https://api.openweathermap.org/data/2.5/onecall?appid=#{ENV['OW_API_KEY']}&lat=38.254448&lon=-104.609138")
         .to_return(status: 200, body: forcast_response)
     end
     it 'Can create a road trip' do
@@ -22,9 +22,9 @@ describe 'Creating a road trip' do
       headers = { 'CONTENT_TYPE' => 'application/json' }
 
       post '/api/v1/road_trip', headers: headers, params: JSON.generate(user_params)
-      
+
       expect(response.status).to eq(200)
-      
+
       json = JSON.parse(response.body, symbolize_names: true)
 
       expect(json[:data][:type]).to eq('roadtrip')
@@ -57,7 +57,7 @@ describe 'Creating a road trip' do
       expect(json[:error]).to eq('Api Key is incorrect')
     end
 
-    it "starting city does not exist" do
+    it 'starting city does not exist' do
       json_response = File.read('spec/fixtures/empty_starting_city.json')
       stub_request(:get, "http://open.mapquestapi.com/directions/v2/route?from=&key=#{ENV['MAPQUEST_API_KEY']}&to=Pueblo,Co")
         .to_return(status: 200, body: json_response)
